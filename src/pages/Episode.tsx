@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { GET_EPISODES } from 'graphql/queries'
 import { IEpisode } from 'models'
 
-import Card from 'components/Card'
 import CardWrapper from 'components/CardWrapper'
+import Card from 'components/Card'
 import Title from 'components/Title'
 import TitleWrapper from 'components/TitleWrapper'
 
