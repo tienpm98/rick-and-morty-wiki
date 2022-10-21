@@ -1,1 +1,2 @@
-export * from './ICharacters'
+export * from './ICharacter'
+export * from './IEpisode'

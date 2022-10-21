@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import { DEFAULT } from './route.constant'
+import { DEFAULT, EPISODES, LOCATION } from './route.constant'
 
 const Characters = lazy(() => import('pages/Characters'))
 const Episode = lazy(() => import('pages/Episode'))
@@ -10,12 +10,12 @@ const CharactersRoute = {
 	element: Characters,
 }
 const EpisodesRoute = {
-	path: 'episodes',
+	path: EPISODES,
 	element: Episode,
 }
 
 const LocationRoute = {
-	path: 'location',
+	path: LOCATION,
 	element: Location,
 }
 

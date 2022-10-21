@@ -1,5 +1,5 @@
 import { FC, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import routes from 'routes/routes'
 
@@ -11,6 +11,7 @@ const Application = () => {
 	return (
 		<ErrorBoundary>
 			<Routes>
+				<Route path='/' element={<Navigate to='characters' />} />
 				<Route element={<Layout />}>
 					{routes.map(({ path, element }) => {
 						const Element: FC = element

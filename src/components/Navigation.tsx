@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const paths = [
 	{
-		path: '/',
+		path: '/characters',
 		title: 'Characters',
 		end: true,
 	},

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ICharacter } from 'models'
 import Title from './card/Title'
 import LocationTitle from './card/LocationTitle'
+import Tag from './card/Tag'
 
 type PropsType = {
 	character: ICharacter
@@ -12,6 +13,7 @@ const Card: FC<PropsType> = ({ character }) => {
 	return (
 		<Wrapper>
 			<img src={character.image} alt={character.name} />
+			<Tag name={character.status} />
 			<div style={{ padding: '0.5rem 1rem' }}>
 				<Title title={character.name}></Title>
 			</div>
@@ -24,6 +26,7 @@ const Card: FC<PropsType> = ({ character }) => {
 }
 
 const Wrapper = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	flex: 0 0 20%;
