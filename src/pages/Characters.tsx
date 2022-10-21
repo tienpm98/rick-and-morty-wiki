@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useQuery, useReactiveVar } from '@apollo/client'
+import { NetworkStatus, useQuery, useReactiveVar } from '@apollo/client'
 
 import { GET_CHARACTERS } from 'graphql/queries'
 import { searchKeyVar } from 'graphql/variables'
@@ -10,20 +10,32 @@ import Card from 'components/Card'
 import TitleWrapper from 'components/TitleWrapper'
 import Title from 'components/Title'
 import Search from 'components/Search'
+import CardSkeleton from 'components/CardSkeleton'
 
 const CharacterList = () => {
 	const searchKey = useReactiveVar(searchKeyVar)
 
-	const { data, loading } = useQuery<ICharacterData>(GET_CHARACTERS, {
-		variables: {
-			page: 1,
-			filter: {
-				name: searchKey,
+	const { data, loading, networkStatus } = useQuery<ICharacterData>(
+		GET_CHARACTERS,
+		{
+			variables: {
+				page: 1,
+				filter: {
+					name: searchKey,
+				},
 			},
-		},
-	})
+			notifyOnNetworkStatusChange: true,
+		}
+	)
 
-	if (loading) return <p>getting characters...</p>
+	if (loading || networkStatus === NetworkStatus.refetch)
+		return (
+			<CardWrapper>
+				{[...Array(8)].map((_, index) => (
+					<CardSkeleton key={index} />
+				))}
+			</CardWrapper>
+		)
 
 	return (
 		<CardWrapper>
