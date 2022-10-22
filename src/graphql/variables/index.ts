@@ -1,1 +1,1 @@
-export * from './searchVar'
+export * from './CharactersVar'

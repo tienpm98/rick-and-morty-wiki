@@ -1,5 +1,0 @@
-export const CHARACTER_STATUS = {
-	ALIVE: 'ALIVE',
-	DEAD: 'DEAD',
-	UNKNOWN: 'UNKNOWN',
-}

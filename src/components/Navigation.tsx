@@ -1,3 +1,4 @@
+import { COLORS } from 'constant'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -43,7 +44,7 @@ const Wrapper = styled.div`
 
 const activeStyles = {
 	fontSize: '20px',
-	color: 'rgb(13, 110, 253)',
+	color: COLORS.BLUE,
 	textDecoration: 'underline',
 }
 

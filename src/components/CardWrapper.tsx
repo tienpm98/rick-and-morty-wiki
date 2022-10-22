@@ -8,7 +8,8 @@ const CardWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 const Wrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 	gap: 2rem;
 `
 

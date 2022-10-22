@@ -1,2 +1,2 @@
 export * from './color'
-export * from './characterStatus'
+export * from './characters'

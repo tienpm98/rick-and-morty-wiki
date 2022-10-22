@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Sidebar = () => {
-	return <Wrapper>Sidebar</Wrapper>
+	return <Wrapper>sidebar</Wrapper>
 }
 
 const Wrapper = styled.div`

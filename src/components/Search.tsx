@@ -1,8 +1,11 @@
 import { FC, useRef } from 'react'
 import styled from 'styled-components'
-import { searchKeyVar } from 'graphql/variables'
+import { FiltersVar } from 'graphql/variables'
 import { COLORS } from 'constant'
 
+/**
+ * debounce search
+ */
 const Search: FC = () => {
 	let filterTimeout: string | number | NodeJS.Timeout | undefined
 	const inputRef = useRef<any>(null)
@@ -10,7 +13,10 @@ const Search: FC = () => {
 	const debounceSearch = (searchKey: string) => {
 		clearTimeout(filterTimeout)
 		filterTimeout = setTimeout(() => {
-			searchKeyVar(searchKey)
+			FiltersVar({
+				...FiltersVar(),
+				name: searchKey,
+			})
 		}, 2000)
 	}
 
