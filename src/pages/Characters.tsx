@@ -6,7 +6,7 @@ import { FiltersVar } from 'graphql/variables'
 import { ICharacterData } from 'models'
 
 import Filter from 'pages/characters/Filter'
-import CardSkeleton from 'components/CardSkeleton'
+import CardSkeleton from 'components/card/CardSkeleton'
 import CardWrapper from 'components/CardWrapper'
 import Card from 'components/Card'
 import TitleWrapper from 'components/TitleWrapper'
