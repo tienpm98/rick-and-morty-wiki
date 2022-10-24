@@ -5,22 +5,24 @@ import { GET_CHARACTERS } from 'graphql/queries'
 import { FiltersVar } from 'graphql/variables'
 import { ICharacterData } from 'models'
 
-import Filter from 'pages/characters/Filter'
+import usePagination from 'hooks/usePagination'
+import Filter from './characters/Filter'
 import CardSkeleton from 'components/card/CardSkeleton'
 import CardWrapper from 'components/CardWrapper'
 import Card from 'components/Card'
 import TitleWrapper from 'components/TitleWrapper'
 import Title from 'components/Title'
 import Search from 'components/Search'
+import Pagination from 'components/Pagination'
 
 const CharacterList = () => {
 	const filters = useReactiveVar(FiltersVar)
-
+	const { page } = usePagination()
 	const { data, loading, networkStatus } = useQuery<ICharacterData>(
 		GET_CHARACTERS,
 		{
 			variables: {
-				page: 1,
+				page,
 				filter: {
 					name: filters.name,
 					status: filters.status,
@@ -40,17 +42,20 @@ const CharacterList = () => {
 				))}
 			</CardWrapper>
 		)
-	console.log('list characters')
+
 	return (
-		<CardWrapper>
-			{data &&
-				data.characters.results.map((character) => (
-					<Card key={character.id} character={character} />
-				))}
-			{data && data.characters.results.length === 0 && (
-				<h2>No characters found</h2>
-			)}
-		</CardWrapper>
+		<>
+			<CardWrapper>
+				{data &&
+					data.characters.results.map((character) => (
+						<Card key={character.id} character={character} />
+					))}
+				{data && data.characters.results.length === 0 && (
+					<h2>No characters found</h2>
+				)}
+			</CardWrapper>
+			{data && <Pagination />}
+		</>
 	)
 }
 

@@ -8,6 +8,9 @@ export interface ICharacter {
 
 export interface ICharacterData {
 	characters: {
+		info: {
+			count: number
+		}
 		results: ICharacter[]
 	}
 }

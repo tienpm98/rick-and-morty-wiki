@@ -6,7 +6,7 @@ import {
 	CHARACTER_SPECIES_ARRAY,
 	CHARACTER_STATUS_ARRAY,
 } from 'constant'
-
+ 
 const Filter: FC = () => {
 	const clearFilters = () => {
 		FiltersVar({ ...FiltersVar(), status: '', gender: '', species: '' })
@@ -16,7 +16,6 @@ const Filter: FC = () => {
 		const filterValue = e.target.value
 		FiltersVar({ ...FiltersVar(), [key]: filterValue })
 	}
-	console.log('filter')
 
 	return (
 		<Wrapper>
@@ -31,7 +30,6 @@ const Filter: FC = () => {
 
 			<Block>
 				<label>Filter gender</label>
-
 				<Select onChange={(e) => onFilter(e, 'gender')}>
 					{CHARACTER_GENDER_ARRAY.map((status) => (
 						<option key={status.value}>{status.name}</option>
@@ -41,7 +39,6 @@ const Filter: FC = () => {
 
 			<Block>
 				<label>Filter Species</label>
-
 				<Select onChange={(e) => onFilter(e, 'species')}>
 					{CHARACTER_SPECIES_ARRAY.map((status) => (
 						<option key={status.value}>{status.name}</option>
